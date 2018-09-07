@@ -1,0 +1,14 @@
+Unit]
+Description=Jboss Application Server
+After=network.target
+
+[Service]
+Type=idle
+ExecStart=/opt/jboss-eap-5.1/jboss-as/bin/run.sh -b 192.168.1.11
+TimeoutStartSec=600
+TimeoutStopSec=600
+
+[Install]
+WantedBy=multi-user.target
+
+
