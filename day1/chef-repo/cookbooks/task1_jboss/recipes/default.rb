@@ -3,8 +3,14 @@
 # Recipe:: default
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
-package "java-1.7.0-openjdk" do
-  action :install
+
+cookbook_file '/opt/jdk-6u45-linux-amd64.rpm' do
+ source 'jdk-6u45-linux-amd64.rpm'
+ action :create
+end
+
+rpm_package '/opt/jdk-6u45-linux-amd64.rpm' do
+ action :install
 end
 
 package "unzip" do
