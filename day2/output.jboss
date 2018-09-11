@@ -1,0 +1,42 @@
+Starting Chef Client, version 14.4.56[0m
+resolving cookbooks for run list: ["jboss"][0m
+Synchronizing Cookbooks:[0m
+  - jboss (0.1.0)[0m
+Installing Cookbook Gems:[0m
+Compiling Cookbooks...[0m
+Converging 8 resources[0m
+Recipe: jboss::default[0m
+  * cookbook_file[/home/vagrant/jdk-6u45-linux-amd64.rpm] action create (up to date)
+  * rpm_package[/home/vagrant/jdk-6u45-linux-amd64.rpm] action install (up to date)
+  * yum_package[unzip] action install (up to date)
+  * cookbook_file[/home/vagrant/jboss-eap-5.1.2.zip] action create (up to date)
+  * execute[unzip] action run
+    [32m- execute unzip -o /home/vagrant/jboss-eap-5.1.2.zip -d /opt/[0m
+[0m  * template[/etc/systemd/system/jboss.service] action create
+    [32m- create new file /etc/systemd/system/jboss.service[0m
+    [32m- update content in file /etc/systemd/system/jboss.service from none to d69035[0m
+    [37m--- /etc/systemd/system/jboss.service	2018-09-11 07:55:55.877510226 +0100[0m
+    [37m+++ /etc/systemd/system/.chef-jboss20180911-22839-11bgbt3.service	2018-09-11 07:55:55.876510208 +0100[0m
+    [37m@@ -1 +1,14 @@[0m
+    [37m+[Unit][0m
+    [37m+Description=Jboss Application Server[0m
+    [37m+After=network.target[0m
+    [37m+[0m
+    [37m+[Service][0m
+    [37m+Type=idle[0m
+    [37m+ExecStart=/opt/jboss-eap-5.1/jboss-as/bin/run.sh -b 192.168.1.12[0m
+    [37m+TimeoutStartSec=600[0m
+    [37m+TimeoutStopSec=600[0m
+    [37m+[0m
+    [37m+[Install][0m
+    [37m+WantedBy=multi-user.target[0m
+    [37m+[0m
+[0m  * systemd_unit[jboss] action reload (up to date)
+  * systemd_unit[jboss] action enable (up to date)
+  * systemd_unit[jboss] action start
+    [32m- starting unit: jboss[0m
+[0m  * cookbook_file[/opt/jboss-eap-5.1/jboss-as/server/default/deploy/sample.war] action create (up to date)
+[0m
+Running handlers:[0m
+Running handlers complete
+[0mChef Client finished, 3/10 resources updated in 38 seconds[0m

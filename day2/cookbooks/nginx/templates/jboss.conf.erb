@@ -1,0 +1,8 @@
+server {
+        listen *:<%= @nginx_port %>;
+        server_name  _;
+location /sample {
+           proxy_pass http://<%= @jbossaddress %>:<%= @jboss_port %>/<%= @jboss_deploy_app %>/;
+        }
+}
+
