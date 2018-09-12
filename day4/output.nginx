@@ -4,35 +4,17 @@ Synchronizing Cookbooks:[0m
   - nginx (0.1.0)[0m
 Installing Cookbook Gems:[0m
 Compiling Cookbooks...[0m
-Converging 4 resources[0m
+Converging 1 resources[0m
 Recipe: nginx::default[0m
-  * yum_package[nginx] action install
-    [32m- install version 1:1.12.2-2.el7.x86_64 of package nginx[0m
-[0m  * service[nginx] action enable
-    [32m- enable service service[nginx][0m
-[0m  * service[nginx] action start
-    [32m- start service service[nginx][0m
-[0m  * template[/etc/nginx/conf.d/jboss.conf] action create
-    [32m- create new file /etc/nginx/conf.d/jboss.conf[0m
-    [32m- update content in file /etc/nginx/conf.d/jboss.conf from none to a90fb1[0m
-    [37m--- /etc/nginx/conf.d/jboss.conf	2018-09-11 08:37:09.952467488 +0100[0m
-    [37m+++ /etc/nginx/conf.d/.chef-jboss20180911-22695-1sci4ut.conf	2018-09-11 08:37:09.951467470 +0100[0m
-    [37m@@ -1 +1,9 @@[0m
-    [37m+server {[0m
-    [37m+        listen *:80;[0m
-    [37m+        server_name  jboss;[0m
-    [37m+location / {[0m
-    [37m+           proxy_pass http://192.168.1.12:8080/sample/;[0m
-    [37m+        }[0m
-    [37m+}[0m
-    [37m+[0m
-[0m  * template[/usr/share/nginx/html/land.html] action create
-    [32m- create new file /usr/share/nginx/html/land.html[0m
-    [32m- update content in file /usr/share/nginx/html/land.html from none to 4b706a[0m
-    [32m- suppressed sensitive resource[0m
-[0m  * service[nginx] action restart
-    [32m- restart service service[nginx][0m
-[0m[0m
+  * nginx_install[inst_nginx] action install
+    * remote_file[/tmp/nginx-1.14.0-1.el7.ngx.x86_64.rpm] action create (up to date)
+    * rpm_package[/tmp/nginx-1.14.0-1.el7.ngx.x86_64.rpm] action install (up to date)
+    * service[nginx] action enable (up to date)
+    * service[nginx] action start (up to date)
+    * template[/etc/nginx/conf.d/jboss.conf] action create (up to date)
+    * template[/usr/share/nginx/html/land.html] action create (up to date)
+     (up to date)
+[0m
 Running handlers:[0m
 Running handlers complete
-[0mChef Client finished, 6/6 resources updated in 22 seconds[0m
+[0mChef Client finished, 0/7 resources updated in 03 seconds[0m
