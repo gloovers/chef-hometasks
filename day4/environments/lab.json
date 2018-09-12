@@ -1,0 +1,19 @@
+{
+    "name": "lab",
+    "description": "This is lab env",
+    "chef_type": "environment",
+    "json_class": "Chef::Environment",
+    "default_attributes": {
+        "nginx_port": "80",
+        "nginx_version": "1.14.0",
+        "nginx_path": "/opt/nginx",
+        "jboss_deploy_app": "sample",
+        "jboss_port": "8080",
+        "app_version": "0.2.0"
+    },
+    "override_attributes": {
+    },
+    "cookbook_versions": {
+        "example": "= 1.0.0"
+    }
+}
